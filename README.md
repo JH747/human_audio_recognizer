@@ -14,3 +14,4 @@ You should have your system ready for conversion. specific tensorflow version an
 ```bash
 tensorflowjs_converter --input_format keras ./m2.h5 ./tfjs_files
 ```
+will create a json file and bin file(s) into tfjs_files directory
