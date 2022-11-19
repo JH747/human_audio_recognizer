@@ -39,7 +39,7 @@ print(y_train.shape)
 width = 21
 height = 232
 
-model = load_model('m2.h5')
+model = load_model('m1.h5')
 
 hist = model.fit(x_train_1d, y_train, batch_size=16, epochs=1, shuffle=True) # shuffle=True
 
@@ -48,6 +48,6 @@ hist = model.fit(x_train_1d, y_train, batch_size=16, epochs=1, shuffle=True) # s
 # print(y_predicted_result)
 # print(y_predicted_result.shape)
 
-model.save("m3.h5")
+model.save("m2.h5")
 
 

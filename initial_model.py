@@ -57,6 +57,6 @@ y_predicted_result = model.predict(x2_train)
 print(y_predicted_result)
 print(y_predicted_result.shape)
 
-model.save("m2.h5")
+model.save("m1.h5")
 
 

@@ -29,16 +29,16 @@ def labeller(length, val):
     return tmp
 
 
-x_train_1d = parser("speech.txt")
-y_train = labeller(90, 100)
-print(x_train_1d.shape)
-print(y_train.shape)
+x_test_1d = parser("speech.txt")
+y_test = labeller(90, 100)
+print(x_test_1d.shape)
+print(y_test.shape)
 
 # ------------------------------- model start here -----------------------------
 
 model = load_model('m2.h5')
 
-y_predicted_result = model.predict(x_train_1d)
+y_predicted_result = model.predict(x_test_1d)
 
 print(y_predicted_result)
 print(y_predicted_result.shape)
