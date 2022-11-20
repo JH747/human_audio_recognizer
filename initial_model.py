@@ -27,13 +27,27 @@ def labeller(length, val):
     return tmp
 
 
-x1_train = parser("speech.txt")
-x2_train = parser("non-speech.txt")
+x1_train = parser("drive/MyDrive/Colab Notebooks/speech.txt")
+x2_train = parser("drive/MyDrive/Colab Notebooks/non-speech.txt")
+x3_train = parser("drive/MyDrive/Colab Notebooks/mute.txt")
+
 y1_train = labeller(90, 100)
 y2_train = labeller(90, 0)
+y3_train = labeller(90, 0)
 
-x_train_1d = x1_train + x2_train
-y_train = y1_train + y2_train
+print(x1_train.shape)
+
+arr = np.concatenate((x1_train,x2_train),axis=0)
+x_train_1d = np.concatenate((arr,x3_train),axis=0)
+arr = np.concatenate((y1_train,y2_train),axis=0)
+y_train = np.concatenate((arr,y3_train),axis=0)
+
+idx = np.arange(x_train_1d.shape[0])
+np.random.shuffle(idx)
+
+x_train_1d = x_train_1d[idx]
+y_train = y_train[idx]
+
 print(x_train_1d.shape)
 print(y_train.shape)
 
