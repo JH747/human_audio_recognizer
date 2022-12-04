@@ -1,6 +1,4 @@
 import numpy as np
-from keras.models import Sequential
-from keras.layers import Dense
 from keras.models import load_model
 
 def parser(filename):
@@ -12,38 +10,35 @@ def parser(filename):
         if not line: break
         list1 = line.split(',')
         l1 = len(list1[0])
-        l2 = len(list1[4871])
+        l2 = len(list1[2435])
         list1[0] = list1[0][1:l1]
-        list1[4871] = list1[4871][0:l2 - 2]
-        for i in range (4872):
+        list1[2435] = list1[2435][0:l2 - 2]
+        for i in range (2436):
             list1[i] = float(list1[i])
-        # print(list1[0], list1[4871])
+        # print(list1[0], list1[2435])
         arr_2d.append(list1)
     tmp_npy = np.array(arr_2d)
     f.close()
     return tmp_npy
 
-
 def labeller(length, val):
     tmp = np.full((length,1), val)
     return tmp
 
+# ----------------------------- data load and prepare -----------------------------
 
-x_train_1d = parser("mute.txt")
+x_train_1d = parser("drive/MyDrive/Colab Notebooks/file_name.txt")
 y_train = labeller(90, 0)
 print(x_train_1d.shape)
 print(y_train.shape)
 
 # ------------------------------- model start here -----------------------------
 
-width = 21
-height = 232
-
 model = load_model('m1.h5')
 
-hist = model.fit(x_train_1d, y_train, batch_size=16, epochs=1, shuffle=True) # shuffle=True
+hist = model.fit(x_train_1d, y_train, batch_size=16, epochs=100, shuffle=True) # shuffle=True
 
-# y_predicted_result = model.predict(x2_train)
+# y_predicted_result = model.predict(x_test)
 
 # print(y_predicted_result)
 # print(y_predicted_result.shape)
