@@ -1,0 +1,4 @@
+speech-0 / mute
+speech-0(2) / noise
+speech-0(demo) / clap & fingersnap for demo
+speech-1 / voice 
